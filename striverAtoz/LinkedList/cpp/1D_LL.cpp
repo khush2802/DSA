@@ -88,6 +88,22 @@ Node* deleteNode(Node* head, int target){
      return head;
 }
 
+Node* insertion(Node* head, int target){
+     Node* newNode = new Node(target);
+
+     if(head == nullptr){return newNode;}
+
+     Node* curr = head;
+
+     while(curr->next!=nullptr){
+          curr = curr->next;
+     }
+
+     curr->next = newNode;
+
+     return head;
+}
+
 int main(){
      int arr[] = {20,40,30,50};
      int n = sizeof(arr) / sizeof(arr[0]);
@@ -125,6 +141,11 @@ int main(){
 
 
      return 0;
+
+     //adding of element in the linkedlist at the back
+     target = 60;
+     cout<<"adding"<<target<<endl;
+     head = insertion(head, target);
 
 
 
