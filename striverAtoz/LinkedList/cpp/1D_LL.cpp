@@ -104,6 +104,23 @@ Node* insertion(Node* head, int target){
      return head;
 }
 
+
+Node* reverseList(Node* head){
+     Node* prev = nullptr;//prev node start as null
+     Node* curr = head;//curr node start as head
+     Node* nextNode = nullptr;//will store add of nxt node
+     
+     while(curr != nullptr){
+          //save nxt node before changing the link
+          nextNode = curr->next;
+          curr->next = prev;
+          prev = curr;
+          curr = nextNode;
+     }
+
+     return prev;
+}
+
 int main(){
      int arr[] = {20,40,30,50};
      int n = sizeof(arr) / sizeof(arr[0]);
@@ -139,13 +156,25 @@ int main(){
      head = deleteNode(head, target);
      printList(head);
 
-
-     return 0;
-
      //adding of element in the linkedlist at the back
      target = 60;
      cout<<"adding"<<target<<endl;
      head = insertion(head, target);
+     printList(head);
+
+
+     //reversing of list
+
+     cout<<"reversing of the list"<<endl;
+     head = reverseList(head);
+     printList(head);
+
+
+
+     return 0;
+
+     
+     
 
 
 
