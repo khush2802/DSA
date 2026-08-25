@@ -65,6 +65,29 @@ bool search(Node* head, int target){
      return false;
 }
 
+Node* deleteNode(Node* head, int target){
+     if(head == nullptr){return nullptr;}//if no node is there
+
+     if(head->data == target){//if head to be deleted
+          Node* toDelete = head;//setting the head to the delteding node
+          head = head->next;//moving the head to the next element so that head can be derive
+          delete toDelete;
+          return head;
+     }
+
+     Node* curr = head;
+     while(curr->next!=nullptr){
+          if(curr->next->data == target){
+               Node* toDelete = curr->next;
+               curr->next = curr->next->next;
+               delete toDelete;
+               break;
+          }
+          curr = curr->next;
+     }
+     return head;
+}
+
 int main(){
      int arr[] = {20,40,30,50};
      int n = sizeof(arr) / sizeof(arr[0]);
@@ -92,6 +115,13 @@ int main(){
      }else{
           cout<<"Not Founded"<<endl;
      }
+
+
+     //deleting of an particular element
+     target = 30;
+     cout<<"deleting "<<target<<endl;
+     head = deleteNode(head, target);
+     printList(head);
 
 
      return 0;
