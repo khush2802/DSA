@@ -3,12 +3,12 @@ using namespace std;
 
 // function to calculate factorial
 int facto(int n){
-    int fact = 1;
-    
-    for(int i = 1; i <= n; i++)
-            fact = fact * i;
-    
-    return fact;
+   if (n==0){
+    return 1;
+
+   }
+
+   return n*facto(n-1);
 }
 
 int detectStrong(int num){
@@ -30,7 +30,7 @@ int detectStrong(int num){
 }
 int main ()
 {
-    int num = 145;
+    int num = 125;
     
     if(detectStrong(num))
         cout << num << " is Strong Number";
