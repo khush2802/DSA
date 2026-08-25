@@ -50,6 +50,21 @@ void printList(Node* head){
 
 }
 
+
+bool search(Node* head, int target){
+     Node* currNode = head;
+
+     while(currNode != nullptr){
+          if(currNode->data == target){
+               return true;
+          }
+
+          currNode = currNode->next;
+     }
+
+     return false;
+}
+
 int main(){
      int arr[] = {20,40,30,50};
      int n = sizeof(arr) / sizeof(arr[0]);
@@ -66,5 +81,21 @@ int main(){
      // conversion from arr to LL
      Node* head = conversion(arr, n);
      printList(head);
+
+
+     //searching
+     int target = 330;
+     cout<<"searching for the "<<target<<endl;
+
+     if(search(head, target)){
+          cout<<"Founded"<<endl;
+     }else{
+          cout<<"Not Founded"<<endl;
+     }
+
+
      return 0;
+
+
+
 }
